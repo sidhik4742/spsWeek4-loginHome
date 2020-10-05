@@ -1,0 +1,89 @@
+:root {
+  --textSize: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-image: url("https://images.pexels.com/photos/313782/pexels-photo-313782.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container .loginPage {
+  background-image: url("/images/iron man movies comics thor captain america marvel comics the avengers movie hulk 1920x1080 wal_www.wallpaperhi.com_71.jpg");
+  filter: opacity(0.9);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid black;
+  box-shadow: 10px 15px rgba(9, 9, 9, 0.849);
+  border-radius: 10px;
+  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(9, 9, 9, 0.596);
+  width: 90vw;
+  height: 80vh;
+}
+
+.container .loginPage .contentDiv {
+  position: relative;
+  width: 20rem;
+  height: auto;
+  color: whitesmoke;
+}
+
+.container .loginPage .formDiv {
+  background-color: rgba(9, 9, 9, 0.596);
+  border: 2px solid black;
+  box-shadow: 10px 15px rgba(9, 9, 9, 0.849);
+  border-radius: 10px;
+  padding: 3rem 3rem;
+}
+
+.container .loginPage .formDiv .login-heading h1 {
+  color: whitesmoke;
+  text-align: center;
+  padding: 1rem;
+}
+.container .loginPage .formDiv form label {
+  padding: 5px;
+  margin: 0.5rem;
+  font-size: var(--textSize);
+  color: whitesmoke;
+}
+.container .loginPage .formDiv form input {
+    margin-bottom: 0.5rem;
+  padding: 8px;
+  /* margin: 0.5rem; */
+  width: 15rem;
+  outline: none;
+  /* border: none; */
+  border-radius: 10px;
+  font-size: var(--textSize);
+}
+.container .loginPage .formDiv form p {
+    color: red;
+}
+.container .loginPage .formDiv form button {
+  padding: 10px;
+  margin: 0.5rem;
+  border-radius: 5px;
+  font-size: var(--textSize);
+  background-color: whitesmoke;
+  margin-left: 50%;
+  transform: translate(-50%);
+}
