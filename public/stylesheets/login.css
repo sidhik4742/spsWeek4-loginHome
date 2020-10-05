@@ -44,7 +44,7 @@
   -webkit-animation: scrollingImg 12s infinite;
   animation: scrollingImg 12s infinite;
   -webkit-animation-timing-function: linear;
-  animation-timing-function:  linear;
+  animation-timing-function: linear;
 }
 
 @-webkit-keyframes scrollingImg {
@@ -70,6 +70,18 @@
   width: 20rem;
   height: auto;
   color: whitesmoke;
+}
+
+.container .loginPage .contentDiv h1 {
+  font-family: "Courgette", cursive;
+  font-size: 3em;
+  font-weight: bolder;
+  font-style: italic;
+  text-shadow: 2px 2px #00b7ff;
+  /* font-style: oblique; */
+}
+.container .loginPage .contentDiv p {
+    font-size: 1.2em;
 }
 
 .container .loginPage .formDiv {
