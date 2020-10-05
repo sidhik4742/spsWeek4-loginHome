@@ -9,7 +9,12 @@
 }
 
 .container {
-  background-image: url("https://images.pexels.com/photos/313782/pexels-photo-313782.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-image: linear-gradient(
+      to bottom,
+      rgba(37, 37, 39, 0.322),
+      rgba(12, 11, 11, 0.623)
+    ),
+    url("https://images.pexels.com/photos/313782/pexels-photo-313782.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,7 +24,6 @@
 
 .container .loginPage {
   background-image: url("/images/iron man movies comics thor captain america marvel comics the avengers movie hulk 1920x1080 wal_www.wallpaperhi.com_71.jpg");
-  filter: opacity(0.9);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,7 +31,7 @@
   justify-content: space-around;
   align-items: center;
   border: 2px solid black;
-  box-shadow: 10px 15px rgba(9, 9, 9, 0.849);
+  box-shadow: 10px 15px rgba(9, 9, 9, 0.911);
   border-radius: 10px;
   padding: 1rem;
   position: absolute;
@@ -37,6 +41,28 @@
   background-color: rgba(9, 9, 9, 0.596);
   width: 90vw;
   height: 80vh;
+  -webkit-animation: scrollingImg 12s infinite;
+  animation: scrollingImg 12s infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function:  linear;
+}
+
+@-webkit-keyframes scrollingImg {
+  0% {
+    background-image: url("../images/wp2564734-superheroes-hd-wallpapers.jpg");
+  }
+  25% {
+    background-image: url("../images/aAjnvF.jpg");
+  }
+  50% {
+    background-image: url("../images/kM0xZP.jpg");
+  }
+  75% {
+    background-image: url("../images/ZGAtxv.jpg");
+  }
+  100% {
+    background-image: url("../images/xFMDu2w.jpg");
+  }
 }
 
 .container .loginPage .contentDiv {
@@ -47,9 +73,9 @@
 }
 
 .container .loginPage .formDiv {
-  background-color: rgba(9, 9, 9, 0.596);
+  background-color: rgba(9, 9, 9, 0.781);
   border: 2px solid black;
-  box-shadow: 10px 15px rgba(9, 9, 9, 0.849);
+  box-shadow: 10px 15px rgba(9, 9, 9, 0.911);
   border-radius: 10px;
   padding: 3rem 3rem;
 }
@@ -66,7 +92,7 @@
   color: whitesmoke;
 }
 .container .loginPage .formDiv form input {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
   padding: 8px;
   /* margin: 0.5rem; */
   width: 15rem;
@@ -76,7 +102,7 @@
   font-size: var(--textSize);
 }
 .container .loginPage .formDiv form p {
-    color: red;
+  color: red;
 }
 .container .loginPage .formDiv form button {
   padding: 10px;

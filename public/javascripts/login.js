@@ -13,6 +13,8 @@ const validaton = () => {
     passwordErr.style.display = "block";
     return false;
   } else {
+    userName.style.borderColor = "grey";
+    userNameErr.style.display = "none";
     password.style.borderColor = "grey";
     passwordErr.style.display = "none";
     return true;
@@ -28,7 +30,7 @@ document.getElementById("submitBtn").addEventListener("click", (event) => {
   event.preventDefault();
 
   if (validaton()) {
-    alert(" form submited");
+    document.getElementById("loginForm").submit();
     userName.value = "";
     password.value = "";
   }

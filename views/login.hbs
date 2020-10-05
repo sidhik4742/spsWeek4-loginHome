@@ -22,7 +22,7 @@
                 <div class="login-heading">
                     <h1>Login</h1>
                 </div>
-                <form action="" method="get">
+                <form action="http://localhost:3000/home" method="POST" id="loginForm">
                     <label for="userName">User Name</label>
                     <br>
                     <input type="text" class="userName" name="userName" id="username">
@@ -36,6 +36,9 @@
                     <button type="submit" id="submitBtn">Login</button>
                 </form>
             </div>
+        </div>
+        <div>
+            <h1> {{status}} </h1>
         </div>
     </div>
     <script src="/javascripts/login.js"></script>

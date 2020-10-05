@@ -7,6 +7,7 @@ let cors = require("cors");
 
 let indexRouter = require("./routes/index");
 let loginRouter = require("./routes/login");
+const { token } = require("morgan");
 
 let app = express();
 
@@ -23,7 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/home", indexRouter);
-app.use("/", loginRouter);
+app.use("/",loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
