@@ -20,7 +20,7 @@
                 <div class="login-heading">
                     <h1>Login</h1>
                 </div>
-                <form action="http://localhost:3000/home" method="POST" id="loginForm">
+                <form action="http://localhost:3000/" method="POST" id="loginForm">
                     <label for="userName">User Name</label>
                     <br>
                     <input type="text" class="userName" name="userName" id="username">
@@ -35,9 +35,12 @@
                 </form>
             </div>
         </div>
-        <div>
-            <h1> {{status}} </h1>
+        {{#if status}}
+        <div class="noUser">
+            <h3> {{status}} </h3>
+            <button type="button" id="statusBtn">OK</button>
         </div>
+        {{/if}}
     </div>
     <script src="/javascripts/login.js"></script>
 </body>

@@ -81,7 +81,7 @@
   /* font-style: oblique; */
 }
 .container .loginPage .contentDiv p {
-    font-size: 1.2em;
+  font-size: 1.2em;
 }
 
 .container .loginPage .formDiv {
@@ -124,4 +124,51 @@
   background-color: whitesmoke;
   margin-left: 50%;
   transform: translate(-50%);
+}
+
+.container .noUser {
+  width: 350px;
+  height: 100px;
+  border-radius: 10px;
+  border: 2px solid whitesmoke;
+  background-color: rgba(12, 11, 11, 0.966);
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  z-index: 5;
+}
+.container .noUser h3 {
+  text-align: center;
+  color: whitesmoke;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+.container .noUser button {
+  padding: 10px;
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+.container .displayClass {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .container .loginPage {
+    display: block;
+  }
+
+  .container .loginPage .contentDiv {
+    position: relative;
+    width: 20rem;
+    height: auto;
+    color: whitesmoke;
+  }
+
+  .container .loginPage .formDiv form input {
+    width: 13rem;
+  }
+  .container .noUser {
+    width: 225px;
+  }
 }

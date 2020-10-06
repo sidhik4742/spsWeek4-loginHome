@@ -8,9 +8,64 @@
 
 <body>
   <div class="container">
-    <h1>home page</h1>
+    <div class="navbar">
+      <div class="brand">
+        <h1>The Reviewer</h1>
+      </div>
+      <div class="menu">
+        <ul>
+          <li>Home</li>
+          <li>Today's Deals</li>
+          <li>
+            <form action="http://localhost:3000/home/logout" method="POST">
+              <button type="submit" name="submit" id="submitBtn">Logout</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <section>
+      <div class="movieCard">
+        <div class="card">
+          <div class="cardImg">
+            <img src="/images/The+Hunter_RGB+DVD+Front.jpg" alt="">
+          </div>
+          <div class="content">
+            <h3>THE HUNTER</h3>
+            <h4>movie rate</h4>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardImg">
+            <img src="/images/War.jpg" alt="">
+          </div>
+          <div class="content">
+            <h3>WAR</h3>
+            <h4>movie rate</h4>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardImg">
+            <img src="/images/End-Game.png" alt="">
+          </div>
+          <div class="content">
+            <h3>END-GAME</h3>
+            <h4>movie rate</h4>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardImg">
+            <img src="/images/Shylock-malayalam-movie.png" alt="">
+          </div>
+          <div class="content">
+            <h3>SHYLOCK</h3>
+            <h4>movie rate</h4>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
-  
+
 </body>
 
 </html>

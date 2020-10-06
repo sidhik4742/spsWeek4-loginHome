@@ -35,3 +35,9 @@ document.getElementById("submitBtn").addEventListener("click", (event) => {
     password.value = "";
   }
 });
+
+document.getElementById("statusBtn").addEventListener("click", () => {
+  let nonStatus = document.querySelector(".noUser");
+  let displayClass = nonStatus.classList.add("displayClass");
+  console.log(nonStatus);
+});
