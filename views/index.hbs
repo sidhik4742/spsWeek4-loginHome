@@ -17,7 +17,7 @@
           <li>Home</li>
           <li>Today's Deals</li>
           <li>
-            <form action="http://localhost:3000/home/logout" method="POST">
+            <form action="http://localhost:3000/home/logout" method="GET">
               <button type="submit" name="submit" id="submitBtn">Logout</button>
             </form>
           </li>
@@ -26,16 +26,19 @@
     </div>
     <section>
       <div class="movieCard">
+        {{#each product}}
         <div class="card">
           <div class="cardImg">
-            <img src="/images/The+Hunter_RGB+DVD+Front.jpg" alt="">
+            <img src={{this.imgUrl}} alt="">
           </div>
           <div class="content">
-            <h3>THE HUNTER</h3>
-            <h4>movie rate</h4>
+            <h3> <a href="#"> Movie Name : {{this.movieName}} </a></h3>
+            <h4> Language : {{this.language}} </h4>
+            <h4>Rating : {{this.MovieRating}}</h4>
           </div>
         </div>
-        <div class="card">
+        {{/each}}
+        {{!-- <div class="card">
           <div class="cardImg">
             <img src="/images/War.jpg" alt="">
           </div>
@@ -43,8 +46,8 @@
             <h3>WAR</h3>
             <h4>movie rate</h4>
           </div>
-        </div>
-        <div class="card">
+        </div> --}}
+        {{!-- <div class="card">
           <div class="cardImg">
             <img src="/images/End-Game.png" alt="">
           </div>
@@ -52,8 +55,8 @@
             <h3>END-GAME</h3>
             <h4>movie rate</h4>
           </div>
-        </div>
-        <div class="card">
+        </div> --}}
+        {{!-- <div class="card">
           <div class="cardImg">
             <img src="/images/Shylock-malayalam-movie.png" alt="">
           </div>
@@ -61,7 +64,7 @@
             <h3>SHYLOCK</h3>
             <h4>movie rate</h4>
           </div>
-        </div>
+        </div> --}}
       </div>
     </section>
   </div>
