@@ -34,6 +34,9 @@ let product = [
 
 //*? Session handling middleware////
 const sessionHandling = (req, res, next) => {
+  res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+  res.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+  res.setHeader("Expires", "0"); // Proxies.
   console.log("This is homePage middleware router");
   console.log(req.session.loginStatus);
   if (req.session.loginStatus) {
@@ -54,7 +57,11 @@ const sessionHandling = (req, res, next) => {
 /* POST home page. */
 router.get("/", sessionHandling, function (req, res) {
   console.log("This is homePage main router");
-  res.render("index", { title: "Home-Page", product: product });
+  if (req.session.logginStatus) {
+    res.render("index", { title: "Home-Page", product: product });
+  } else {
+    res.redirect("/");
+  }
 });
 
 router.get("/logout", function (req, res) {

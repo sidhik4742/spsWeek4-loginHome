@@ -29,6 +29,9 @@ const authentication = (req, res, next) => {
 
 /* GET users listing. */
 router.get("/", function (req, res) {
+  res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+  res.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+  res.setHeader("Expires", "0"); // Proxies.
   console.log(req.session);
   if (req.session.logginStatus) {
     res.redirect("/home");

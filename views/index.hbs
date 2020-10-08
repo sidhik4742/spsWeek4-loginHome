@@ -17,9 +17,9 @@
           <li>Home</li>
           <li>Today's Deals</li>
           <li>
-            <form action="http://localhost:3000/home/logout" method="GET">
+            <a href="http://localhost:3000/home/logout">
               <button type="submit" name="submit" id="submitBtn">Logout</button>
-            </form>
+            </a>
           </li>
         </ul>
       </div>
@@ -32,7 +32,7 @@
             <img src={{this.imgUrl}} alt="">
           </div>
           <div class="content">
-            <h3> <a href="#"> Movie Name : {{this.movieName}} </a></h3>
+            <h3> <a href=""> Movie Name : {{this.movieName}} </a></h3>
             <h4> Language : {{this.language}} </h4>
             <h4>Rating : {{this.MovieRating}}</h4>
           </div>
