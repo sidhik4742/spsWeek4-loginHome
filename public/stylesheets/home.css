@@ -1,0 +1,34 @@
+
+body{
+  background-image: url("../images/avatar-flying.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.navbar{
+  padding: 1rem 1rem;
+}
+
+.cardimg{
+  height: 25rem;
+
+}
+
+.brandName{
+  border: 2px solid rgba(0, 255, 0, 0.863);
+  color: rgba(0, 255, 0, 0.863) !important;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 10px 10px black;
+}
+
+.brandName:hover{
+  background-color: rgba(0, 255, 0, 0.863);
+  color: white !important;
+}
+
+.card{
+  background-color: rgba(0, 0, 0, 0.884);
+  color: white;
+}

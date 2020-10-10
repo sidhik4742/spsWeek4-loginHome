@@ -3,71 +3,70 @@
 
 <head>
   <title>{{title}}</title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel='stylesheet' href='/stylesheets/home.css' />
 </head>
 
 <body>
-  <div class="container">
-    <div class="navbar">
-      <div class="brand">
-        <h1>The Reviewer</h1>
-      </div>
-      <div class="menu">
-        <ul>
-          <li>Home</li>
-          <li>Today's Deals</li>
-          <li>
-            <a href="http://localhost:3000/home/logout">
-              <button type="submit" name="submit" id="submitBtn">Logout</button>
-            </a>
-          </li>
-        </ul>
-      </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand brandName" href="#">The Reviewer</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Today's Deals</a>
+        </li>
+        </li>
+      </ul>
+      <a href="http://localhost:3000/home/logout">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+      </a>
     </div>
-    <section>
-      <div class="movieCard">
+  </nav>
+
+
+  <section>
+    <div class="container-fluid">
+      <div class="row">
         {{#each product}}
-        <div class="card">
-          <div class="cardImg">
-            <img src={{this.imgUrl}} alt="">
-          </div>
-          <div class="content">
-            <h3> <a href=""> Movie Name : {{this.movieName}} </a></h3>
-            <h4> Language : {{this.language}} </h4>
-            <h4>Rating : {{this.MovieRating}}</h4>
+        <div class="col-md-4 col-sm-6 col-12 mt-5">
+          <div class="card" style="width: 19rem;">
+            <img class="card-img-top cardimg " src={{this.imgUrl}} alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"> Movie Name : {{this.movieName}}</h5>
+              <p class="card-text"> Language : {{this.language}}</p>
+              <p class="card-text"> Catogery : {{this.catogery}}</p>
+              <p class="card-text"> Rating : {{this.movieRating}}</p>
+              <a href="#" class="btn btn-primary">Add to cart</a>
+            </div>
           </div>
         </div>
         {{/each}}
-        {{!-- <div class="card">
-          <div class="cardImg">
-            <img src="/images/War.jpg" alt="">
-          </div>
-          <div class="content">
-            <h3>WAR</h3>
-            <h4>movie rate</h4>
-          </div>
-        </div> --}}
-        {{!-- <div class="card">
-          <div class="cardImg">
-            <img src="/images/End-Game.png" alt="">
-          </div>
-          <div class="content">
-            <h3>END-GAME</h3>
-            <h4>movie rate</h4>
-          </div>
-        </div> --}}
-        {{!-- <div class="card">
-          <div class="cardImg">
-            <img src="/images/Shylock-malayalam-movie.png" alt="">
-          </div>
-          <div class="content">
-            <h3>SHYLOCK</h3>
-            <h4>movie rate</h4>
-          </div>
-        </div> --}}
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 
 </body>
 

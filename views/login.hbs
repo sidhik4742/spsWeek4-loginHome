@@ -35,10 +35,15 @@
                 </form>
             </div>
         </div>
-        {{#if status}}
+        {{#if noUserStatus}}
+        {{!-- <script>
+            alert("Not a valid user");
+        </script> --}}
         <div class="noUser">
-            <h3> {{status}} </h3>
-            <button type="button" id="statusBtn">OK</button>
+            <h3 id="statusmessage"> Not a valid user </h3>
+            <a href="http://localhost:3000/"> 
+                <button type="button" id="statusBtn">OK</button>
+            </a>
         </div>
         {{/if}}
     </div>

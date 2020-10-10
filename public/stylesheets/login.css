@@ -42,8 +42,10 @@
   width: 90vw;
   height: 80vh;
   -webkit-animation: scrollingImg 12s infinite;
+  -moz-animation: scrollingImg 12s infinite;
   animation: scrollingImg 12s infinite;
   -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
   animation-timing-function: linear;
 }
 
@@ -82,6 +84,7 @@
 }
 .container .loginPage .contentDiv p {
   font-size: 1.2em;
+  padding: 9px;
 }
 
 .container .loginPage .formDiv {
@@ -89,7 +92,7 @@
   border: 2px solid black;
   box-shadow: 10px 15px rgba(9, 9, 9, 0.911);
   border-radius: 10px;
-  padding: 3rem 3rem;
+  padding: 1rem 1rem;
 }
 
 .container .loginPage .formDiv .login-heading h1 {
@@ -98,16 +101,19 @@
   padding: 1rem;
 }
 .container .loginPage .formDiv form label {
+  margin-left: 11%;
   padding: 5px;
-  margin: 0.5rem;
+  /* margin: 0.5rem; */
   font-size: var(--textSize);
   color: whitesmoke;
 }
 .container .loginPage .formDiv form input {
   margin-bottom: 0.5rem;
   padding: 8px;
+  margin-left: 11%;
   /* margin: 0.5rem; */
-  width: 15rem;
+  max-width: 15rem;
+  width: 90%;
   outline: none;
   /* border: none; */
   border-radius: 10px;
@@ -160,15 +166,43 @@
 
   .container .loginPage .contentDiv {
     position: relative;
-    width: 20rem;
+    width: 18rem;
     height: auto;
     color: whitesmoke;
+    text-align: center;
+  }
+  .container .loginPage .formDiv {
+    margin-top: 2rem;
   }
 
-  .container .loginPage .formDiv form input {
-    width: 13rem;
-  }
+  /* .container .loginPage .formDiv form input {
+    width: 90%;
+    margin-left: 20%;
+  } */
+  /* .container .loginPage .formDiv form label {
+    margin-left: 20%;
+  } */
   .container .noUser {
     width: 225px;
+  }
+}
+
+@media only screen and (max-width: 290px) {
+  .container .loginPage .contentDiv h1 {
+    font-size: 2rem;
+  }
+  .container .loginPage .formDiv form input {
+    margin-left: 7%;
+  }
+  .container .loginPage .formDiv form label {
+    margin-left: 7%;
+  }
+  .container .loginPage .contentDiv p {
+    margin-right: 10px;
+    font-size: 1rem;
+  }
+  .container .loginPage .contentDiv {
+    width: 14rem;
+    text-align: center;
   }
 }

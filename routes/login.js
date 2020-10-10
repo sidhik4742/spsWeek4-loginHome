@@ -13,17 +13,25 @@ var router = express.Router();
 
 ////////////////*? validation middleware/////////
 const authentication = (req, res, next) => {
+  // res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+  // res.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+  // res.setHeader("Expires", "0"); // Proxies.
   console.log(req.session);
   let userName = req.body.userName;
   let password = req.body.password;
-  console.log(`username : ${userName},password : ${password}`);
-  if (userName === "sidhik" && password === "letmein") {
-    console.log("User validated");
-    req.session.logginStatus = true;
-    req.session.userName = userName;
+  if (req.session.loginStatus) {
     next();
   } else {
-    res.render("login", { status: "user does not exist" });
+    console.log(`username : ${userName},password : ${password}`);
+    if (userName === "sidhik" && password === "letmein") {
+      console.log("User validated");
+      req.session.loginStatus = true;
+      req.session.userName = userName;
+      next();
+    } else {
+      res.render("login", { noUserStatus: true });
+      return true;
+    }
   }
 };
 
@@ -33,7 +41,7 @@ router.get("/", function (req, res) {
   res.setHeader("Pragma", "no-cache"); // HTTP 1.0.
   res.setHeader("Expires", "0"); // Proxies.
   console.log(req.session);
-  if (req.session.logginStatus) {
+  if (req.session.loginStatus) {
     res.redirect("/home");
   } else {
     res.render("login", { title: "Login-page" });
@@ -41,7 +49,15 @@ router.get("/", function (req, res) {
 });
 
 router.post("/", authentication, function (req, res) {
-  // console.log(req.session);
+  console.log(req.session);
   res.redirect("/home");
 });
 module.exports = router;
+
+// router.post("/nouser", authentication, function (req, res) {
+//   res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+//   res.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+//   res.setHeader("Expires", "0"); // Proxies.
+//   console.log(req.session);
+//   res.redirect("/");
+// });

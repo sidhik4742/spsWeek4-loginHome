@@ -10,24 +10,24 @@ let product = [
     imgUrl: "/images/The+Hunter_RGB+DVD+Front.jpg",
   },
   {
-    MovieName: "WAR",
+    movieName: "WAR",
     language: "Hindi",
-    Catogery: "Action",
-    MovieRating: "3/5",
+    catogery: "Action",
+    movieRating: "3/5",
     imgUrl: "/images/War.jpg",
   },
   {
-    MovieName: "END-GAME",
+    movieName: "END-GAME",
     language: "English",
-    Catogery: "Action",
-    MovieRating: "4/5",
+    catogery: "Action",
+    movieRating: "4/5",
     imgUrl: "/images/End-Game.png",
   },
   {
-    MovieName: "SHYLOCK",
+    movieName: "SHYLOCK",
     language: "Malayalam",
-    Catogery: "Action/Comedy",
-    MovieRating: "3/5",
+    catogery: "Action/Comedy",
+    movieRating: "3/5",
     imgUrl: "/images/Shylock-malayalam-movie.png",
   },
 ];
@@ -40,7 +40,7 @@ const sessionHandling = (req, res, next) => {
   console.log("This is homePage middleware router");
   console.log(req.session.loginStatus);
   if (req.session.loginStatus) {
-    res.redirect("/home");
+    next();
   } else {
     console.log(req.session);
     let sessionStatus = req.session.userName;
@@ -49,7 +49,6 @@ const sessionHandling = (req, res, next) => {
       next();
     } else {
       res.redirect("/");
-      // res.redirect("/");
     }
   }
 };
@@ -57,18 +56,14 @@ const sessionHandling = (req, res, next) => {
 /* POST home page. */
 router.get("/", sessionHandling, function (req, res) {
   console.log("This is homePage main router");
-  if (req.session.logginStatus) {
-    res.render("index", { title: "Home-Page", product: product });
-  } else {
-    res.redirect("/");
-  }
+  res.render("index", { title: "Home-Page", product: product });
 });
 
 router.get("/logout", function (req, res) {
   console.log("This signout root");
   req.session.destroy();
-  res.redirect("/");
   console.log(req.session);
+  res.redirect("/");
   // console.log(req.cookies);
 
   // res.cookie("sid1", { maxAge: Date.now() }).redirect("/");
