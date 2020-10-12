@@ -12,7 +12,7 @@ let product = [
   {
     movieName: "WAR",
     language: "Hindi",
-    catogery: "Action",
+    catogery: "Action/Adventure",
     movieRating: "3/5",
     imgUrl: "/images/War.jpg",
   },

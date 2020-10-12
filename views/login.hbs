@@ -7,6 +7,7 @@
     <title> {{title}} </title>
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -20,32 +21,27 @@
                 <div class="login-heading">
                     <h1>Login</h1>
                 </div>
-                <form action="http://localhost:3000/" method="POST" id="loginForm">
+                <form id="loginForm">
                     <label for="userName">User Name</label>
                     <br>
                     <input type="text" class="userName" name="userName" id="username">
-                    <p id="userNameErr" style="display: none;">* mandatory felid</p>
+                    <p id="userNameErr" style="display: none;">* Please enter a valid user name</p>
                     <br>
                     <label for="userName">Password</label>
                     <br>
                     <input type="password" class="password" name="password" id="password">
-                    <p id="passwordErr" style="display: none;">* mandatory felid</p>
+                    <p id="passwordErr" style="display: none;">* Please enter a minimum 4 character</p>
                     <br>
-                    <button type="submit" id="submitBtn">Login</button>
+                    <button type="button" id="submitBtn">Login</button>
                 </form>
             </div>
         </div>
-        {{#if noUserStatus}}
-        {{!-- <script>
-            alert("Not a valid user");
-        </script> --}}
-        <div class="noUser">
+        <div class="noUser hideDisplayClass">
             <h3 id="statusmessage"> Not a valid user </h3>
-            <a href="http://localhost:3000/"> 
+            {{!-- <a href="http://localhost:3000/"> --}}
                 <button type="button" id="statusBtn">OK</button>
-            </a>
+            {{!-- </a> --}}
         </div>
-        {{/if}}
     </div>
     <script src="/javascripts/login.js"></script>
 </body>

@@ -155,7 +155,10 @@
   margin-left: 50%;
   transform: translate(-50%);
 }
-.container .displayClass {
+.container .showDisplayClass {
+  display: block;
+}
+.container .hideDisplayClass {
   display: none;
 }
 
