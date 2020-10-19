@@ -73,3 +73,34 @@ document.getElementById("statusBtn").addEventListener("click", () => {
   userName.value = "";
   password.value = "";
 });
+
+document.getElementById("switchToSignUp").addEventListener("click", (event) => {
+  event.preventDefault();
+  console.log("animation start");
+  let loginPage = document.querySelector(".formDiv");
+  loginPage.classList.add("transformLogin");
+  console.log(loginPage);
+  let signUpPage = document.querySelector(".registerForm");
+  setTimeout(() => {
+    console.log("5 sec reached");
+    loginPage.style.display = "none";
+    signUpPage.style.display = "block";
+    loginPage.classList.remove("transformLogin");
+  }, 3500);
+});
+
+document.getElementById("backToLogin").addEventListener("click", (event) => {
+  event.preventDefault();
+  console.log("animation start");
+  let signUpPage = document.querySelector(".registerForm");
+  signUpPage.classList.add("transformSignup");
+  console.log(signUpPage);
+  let loginPage = document.querySelector(".formDiv");
+
+  setTimeout(() => {
+    console.log("5 sec reached");
+    loginPage.style.display = "block";
+    signUpPage.style.display = "none";
+    signUpPage.classList.remove("transformSignup");
+  }, 3500);
+});

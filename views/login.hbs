@@ -7,7 +7,6 @@
     <title> {{title}} </title>
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/login.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -17,7 +16,7 @@
                 <h1>The Reviewer</h1>
                 <p>This is the website contained the movie review of top languages. </p>
             </div>
-            {{!-- <div class="formDiv">
+            <div class="formDiv">
                 <div class="login-heading">
                     <h1>Login</h1>
                 </div>
@@ -35,9 +34,10 @@
                     <button type="button" id="submitBtn">Login</button>
                 </form>
                 <div class="register">
-                   <p> New user <a href="#">Register here</a></p>
+                    <p> New user <a href="" id="switchToSignUp">Register here</>
+                    </p>
                 </div>
-            </div> --}}
+            </div>
             <div class="registerForm">
                 <div class="register-heading">
                     <h1>Sign Up</h1>
@@ -45,7 +45,7 @@
                 <form action="">
                     <label for="userName">User Name</label>
                     <br>
-                    <input type="text" class="userName" name="userName" id="username">
+                    <input type="text" class="userName" name="userName" id="SignUpUsername">
                     <p id="userNameErr" style="display: none;">* Please enter a valid user name</p>
                     <br>
                     <label for="email">Email</label>
@@ -60,7 +60,7 @@
                     <br>
                     <label for="password">Password</label>
                     <br>
-                    <input type="password" class="password" name="password" id="password">
+                    <input type="password" class="password" name="password" id="SignUpPassword">
                     <p id="passwordErr" style="display: none;">* Please enter a minimum 4 character</p>
                     <br>
                     <label for="cPassword">conform Password</label>
@@ -70,6 +70,9 @@
                     <br>
                     <button type="button" id="registerSubmitBtn">Register</button>
                 </form>
+                <div class="login">
+                    <a href="" id="backToLogin">back to login</a>
+                </div>
             </div>
         </div>
         <div class="noUser hideDisplayClass">
