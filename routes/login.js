@@ -1,6 +1,8 @@
 var express = require("express");
 const app = require("../app");
 var router = express.Router();
+let config = require("../config/config");
+let userHelpers = require("../helpers/userHelpers");
 // let session = require("express-session");
 
 //*? ///session middleware////
@@ -56,12 +58,11 @@ router.post("/", authentication, function (req, res) {
   console.log(req.session);
   res.redirect("/home");
 });
-module.exports = router;
 
-// router.post("/nouser", authentication, function (req, res) {
-//   res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
-//   res.setHeader("Pragma", "no-cache"); // HTTP 1.0.
-//   res.setHeader("Expires", "0"); // Proxies.
-//   console.log(req.session);
-//   res.redirect("/");
-// });
+router.post("/register", function (req, res) {
+  console.log(req.session);
+  userHelpers.insertUserDetail(req.body);
+  res.send({ status: true, message: "success" });
+});
+
+module.exports = router;
