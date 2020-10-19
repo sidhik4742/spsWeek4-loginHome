@@ -17,7 +17,7 @@
                 <h1>The Reviewer</h1>
                 <p>This is the website contained the movie review of top languages. </p>
             </div>
-            <div class="formDiv">
+            {{!-- <div class="formDiv">
                 <div class="login-heading">
                     <h1>Login</h1>
                 </div>
@@ -34,12 +34,48 @@
                     <br>
                     <button type="button" id="submitBtn">Login</button>
                 </form>
+                <div class="register">
+                   <p> New user <a href="#">Register here</a></p>
+                </div>
+            </div> --}}
+            <div class="registerForm">
+                <div class="register-heading">
+                    <h1>Sign Up</h1>
+                </div>
+                <form action="">
+                    <label for="userName">User Name</label>
+                    <br>
+                    <input type="text" class="userName" name="userName" id="username">
+                    <p id="userNameErr" style="display: none;">* Please enter a valid user name</p>
+                    <br>
+                    <label for="email">Email</label>
+                    <br>
+                    <input type="email" class="email" name="email" id="email">
+                    <p id="emailNameErr" style="display: none;">* Please enter a valid email ID</p>
+                    <br>
+                    <label for="mobNo">Mobile Number</label>
+                    <br>
+                    <input type="text" class="mobNo" name="mobNo" id="mobNo">
+                    <p id="mobNoNameErr" style="display: none;">* Please enter a valid mobile number</p>
+                    <br>
+                    <label for="password">Password</label>
+                    <br>
+                    <input type="password" class="password" name="password" id="password">
+                    <p id="passwordErr" style="display: none;">* Please enter a minimum 4 character</p>
+                    <br>
+                    <label for="cPassword">conform Password</label>
+                    <br>
+                    <input type="password" class="password" name="cPassword" id="cPassword">
+                    <p id="cPasswordErr" style="display: none;">* Password does not match</p>
+                    <br>
+                    <button type="button" id="registerSubmitBtn">Register</button>
+                </form>
             </div>
         </div>
         <div class="noUser hideDisplayClass">
             <h3 id="statusmessage"> Not a valid user </h3>
             {{!-- <a href="http://localhost:3000/"> --}}
-                <button type="button" id="statusBtn">OK</button>
+            <button type="button" id="statusBtn">OK</button>
             {{!-- </a> --}}
         </div>
     </div>
