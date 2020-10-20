@@ -5,15 +5,6 @@ var router = express.Router();
 const userHelpers = require("../helpers/userHelpers");
 // let session = require("express-session");
 
-//*? ///session middleware////
-
-/**
- * TODO: /// hardcoded user name and password ///
- * *  /// User name : admin ///
- * *  /// Password : admin ///
- * * /// 101 status for access to admin page //
- */
-
 ////////////////*? validation middleware/////////
 const authentication = (req, res, next) => {
   console.log(req.body);
@@ -53,9 +44,16 @@ const authentication = (req, res, next) => {
     }
   }
 };
+router.get("/", function (req, res) {
+  res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+  res.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+  res.setHeader("Expires", "0"); // Proxies.
+  console.log(req.session);
+  res.redirect("/login");
+});
 
 /* GET users listing. */
-router.get("/", function (req, res) {
+router.get("/login", function (req, res) {
   res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
   res.setHeader("Pragma", "no-cache"); // HTTP 1.0.
   res.setHeader("Expires", "0"); // Proxies.
@@ -63,6 +61,7 @@ router.get("/", function (req, res) {
   if (req.session.loginStatus) {
     res.redirect("/home");
   } else {
+    // res.redirect("/userlogin")
     res.render("login", { title: "Login-page" });
   }
 });

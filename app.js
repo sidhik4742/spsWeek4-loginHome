@@ -15,7 +15,7 @@ db.dbConnect((error) => {
     console.log("db connection success");
   }
 });
-
+let adminLoginRouter = require("./routes/adminLogin");
 let adminRouter = require("./routes/admin");
 let indexRouter = require("./routes/index");
 let loginRouter = require("./routes/login");
@@ -59,7 +59,8 @@ app.use(
 //     },
 //   })
 // );
-app.use("/admin", adminRouter);
+app.use("/admin", adminLoginRouter);
+app.use("/admin/dashboard", adminRouter);
 app.use("/home", indexRouter);
 app.use("/", loginRouter);
 

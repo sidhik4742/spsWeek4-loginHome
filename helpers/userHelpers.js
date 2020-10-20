@@ -1,5 +1,6 @@
 const db = require("../config/config");
 const bcrypt = require("bcrypt");
+const { ObjectId } = require("mongodb");
 
 const saltRounds = 10;
 
@@ -91,6 +92,16 @@ module.exports = {
       .collection("registerDetails")
       .find()
       .toArray()
+      .then((result) => {
+        // console.log(result);
+        return callback(result);
+      });
+  },
+  deleteUser: (id, callback) => {
+    let query = { _id: ObjectId(id) };
+    db.getConnection()
+      .collection("registerDetails")
+      .deleteOne(query)
       .then((result) => {
         // console.log(result);
         return callback(result);

@@ -1,12 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel='stylesheet' href="/stylesheets/admin.css" />
 </head>
-<body>
-    <h1>This is admin page</h1>
 
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand brandName" href="#">The Reviewer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Today's Deals</a>
+                </li>
+                </li>
+            </ul>
+            <a href="http://localhost:3000/admin/dashboard/logout">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+            </a>
+        </div>
+    </nav>
+
+    <section>
+        <div class="adminPage">
+            <table>
+                <thead>
+                    <tr>
+                        <td>User Name</td>
+                        <td>Email ID</td>
+                        <td>Mobile Number</td>
+                        <td>Password</td>
+                        <td>Edit</td>
+                        <td>Delete</td>
+                    </tr>
+                    {{#each result}}
+                    <tr>
+                        <td>{{this.User-Name}}</td>
+                        <td>{{this.Email}}</td>
+                        <td>{{this.Mobile-Number}}</td>
+                        <td>{{this.Password}}</td>
+                        <td><a href=""><i class="fas fa-edit"></i></a></td>
+                        <td><a href="http://localhost:3000/admin/dashboard/delete?id={{this._id}}"> <i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </thead>
+            </table>
+        </div>
+    </section>
+    <script src="/javascripts/admin.js"></script>
 </body>
+
 </html>
