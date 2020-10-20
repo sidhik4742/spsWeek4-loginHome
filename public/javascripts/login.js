@@ -57,15 +57,26 @@ document.getElementById("submitBtn").addEventListener("click", (event) => {
 
     xhr.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
-        homePage = this.responseText;
+        homePage = JSON.parse(this.responseText);
         console.log(typeof homePage);
-        if (homePage == "false") {
-          let nonStatus = document.querySelector(".noUser");
-          nonStatus.classList.remove("hideDisplayClass");
-          nonStatus.classList.add("showDisplayClass");
-          console.log(nonStatus);
+        console.log(homePage);
+        if (homePage.status === 101) {
+          userName.value = "";
+          password.value = "";
+          document.location.href = "http://localhost:3000/admin";
         } else {
-          document.location.href = "http://localhost:3000/home";
+          if (homePage.status === null) {
+            let nonStatus = document.querySelector(".noUser");
+            document.getElementById("statusmessage").innerText =
+              homePage.message;
+            nonStatus.classList.remove("hideDisplayClass");
+            nonStatus.classList.add("showDisplayClass");
+            // console.log(nonStatus);
+            userName.value = "";
+            password.value = "";
+          } else if(homePage.status === 201) {
+            document.location.href = "http://localhost:3000/home";
+          }
         }
       }
     };
@@ -82,7 +93,7 @@ document.getElementById("statusBtn").addEventListener("click", () => {
   let nonStatus = document.querySelector(".noUser");
   nonStatus.classList.remove("showDisplayClass");
   nonStatus.classList.add("hideDisplayClass");
-  console.log(nonStatus);
+  // console.log(nonStatus);
   userName.value = "";
   password.value = "";
 });
@@ -181,7 +192,7 @@ document
   .getElementById("registerSubmitBtn")
   .addEventListener("click", (event) => {
     event.preventDefault();
-    let homePage;
+    let result;
 
     let userData = {
       userNameValue: document.getElementById("SignUpUsername").value,
@@ -197,12 +208,21 @@ document
 
       xhr.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
-          homePage = this.responseText;
-          console.log(homePage);
-          if (homePage == "false") {
+          result = JSON.parse(this.responseText);
+          // console.log(result);
+          if (result.result.status === 200 || result.result.status === 301) {
             // *TODO: create a sucessfully message div //
+            let nonStatus = document.querySelector(".noUser");
+            document.getElementById("statusmessage").innerText =
+              result.result.message;
+            nonStatus.classList.remove("hideDisplayClass");
+            nonStatus.classList.add("showDisplayClass");
+            // console.log(nonStatus);
+            // if (result.result.status === 200) {
+            //   document.location.href = "http://localhost:3000/";
+            // }
           } else {
-            document.location.href = "http://localhost:3000/admin";
+            console.log("else case");
           }
         }
       };

@@ -61,7 +61,7 @@ router.get("/", sessionHandling, function (req, res) {
 
 router.get("/logout", function (req, res) {
   console.log("This signout root");
-  req.session.destroy();
+  req.session.loginStatus = null;
   console.log(req.session);
   res.redirect("/");
   // console.log(req.cookies);

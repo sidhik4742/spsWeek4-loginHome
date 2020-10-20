@@ -1,16 +1,17 @@
 var express = require("express");
 const app = require("../app");
 var router = express.Router();
-let config = require("../config/config");
-let userHelpers = require("../helpers/userHelpers");
+// let config = require("../config/config");
+const userHelpers = require("../helpers/userHelpers");
 // let session = require("express-session");
 
 //*? ///session middleware////
 
 /**
  * TODO: /// hardcoded user name and password ///
- * *  /// User name : sidhik ///
- * *  /// Password : letmein ///
+ * *  /// User name : admin ///
+ * *  /// Password : admin ///
+ * * /// 101 status for access to admin page //
  */
 
 ////////////////*? validation middleware/////////
@@ -20,23 +21,35 @@ const authentication = (req, res, next) => {
   // res.setHeader("Pragma", "no-cache"); // HTTP 1.0.
   // res.setHeader("Expires", "0"); // Proxies.
   console.log(req.session);
-  let userName = req.body.userName;
-  let password = req.body.password;
-  if (req.session.loginStatus) {
-    next();
+  if (req.body.userName === "admin" && req.body.password === "admin") {
+    console.log("this is admin page");
+    req.session.adminLoginStatus = true;
+    res.send({ status: 101, message: "render to admin page" });
+    return true;
   } else {
-    console.log(`username : ${userName},password : ${password}`);
-    if (userName === "sidhik" && password === "letmein") {
-      console.log("User validated");
-      req.session.loginStatus = true;
-      req.session.userName = userName;
+    if (req.session.loginStatus) {
       next();
     } else {
-      console.log("responce with a message invalid user");
-      // res.render("login", { noUserStatus: true });
-      res.send(false);
-      // res.send("not a valid user")
-      return true;
+      userHelpers.findUserDetails(req.body, (result) => {
+        console.log(`route result is :  ${result.message}`);
+        // res.send({ result });
+        if (result.status) {
+          console.log("User validated");
+          req.session.loginStatus = true;
+          res.send(result);
+        } else {
+          console.log("responce with a message invalid user");
+          res.send(result);
+        }
+      });
+
+      // if (userName === "sidhik" && password === "letmein") {
+      //   req.session.userName = userName;
+      // } else {
+      //   // res.render("login", { noUserStatus: true });
+      //   // res.send("not a valid user")
+      //   return true;
+      // }
     }
   }
 };
@@ -61,8 +74,10 @@ router.post("/", authentication, function (req, res) {
 
 router.post("/register", function (req, res) {
   console.log(req.session);
-  userHelpers.insertUserDetail(req.body);
-  res.send({ status: true, message: "success" });
+  userHelpers.insertUserDetail(req.body, (result) => {
+    console.log(`route result is :  ${result.message}`);
+    res.send({ result });
+  });
 });
 
 module.exports = router;
