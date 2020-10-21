@@ -31,6 +31,20 @@ body {
   background-color: rgba(0, 0, 0, 0.884);
   color: white;
 }
+.navbar .searchDiv {
+  padding: 10px;
+  background-color: white;
+  border-radius: 50px;
+}
+.navbar .searchDiv .searchbtn {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.navbar .searchDiv input {
+  outline: none;
+  border-color: transparent;
+}
 
 .adminPage {
   width: 80%;
@@ -84,7 +98,7 @@ body {
 }
 .addForm h2 {
   /* text-align: center; */
-  color:black ;
+  color: black;
 }
 
 .editForm label,

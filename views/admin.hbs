@@ -28,6 +28,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Today's Deals</a>
                 </li>
+                <li>
+                    <div class="searchDiv">
+                        <form action="http://localhost:3000/admin/dashboard/search" method="POST">
+                            <input type="text" id="searchUser" name="searchKey" placeholder="Search">
+                            <button type="submit" class="searchbtn" ><i id="searchBtn" class="fas fa-search"></i></button>
+                        </form>
+                    </div>
                 </li>
             </ul>
             <a href="http://localhost:3000/admin/dashboard/logout">

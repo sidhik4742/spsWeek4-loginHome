@@ -96,4 +96,12 @@ router.post("/add", function (req, res) {
   });
 });
 
+router.post("/search", function (req, res) {
+  console.log(req.body);
+  userHelpers.searchUser(req.body, (result) => {
+    // req.session.searchedData = result;
+    res.render("admin", { result: result });
+  });
+});
+
 module.exports = router;
