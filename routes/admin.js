@@ -27,7 +27,14 @@ router.get("/", configDashboard, function (req, res) {
   if (req.session.adminLoginStatus) {
     let result = res.locals.result;
     console.log(result);
-    res.render("admin", { title: "admin-page", result: result });
+    res.render("admin", {
+      title: "admin-page",
+      result: result,
+      editUserData: req.session.editUserData,
+      addUserWarning: req.session.addUserWarning,
+    });
+    req.session.editUserData = undefined;
+    req.session.addUserWarning = undefined;
   } else {
     res.redirect("/admin");
   }
@@ -48,7 +55,44 @@ router.get("/delete", function (req, res) {
   console.log("id : " + id);
   userHelpers.deleteUser(id, (result) => {
     console.log(result.result);
-    res.redirect("/admin/dashboard")
+    res.redirect("/admin/dashboard");
+  });
+});
+
+router.get("/edit", function (req, res) {
+  let id = req.query.id;
+  console.log("id : " + id);
+  req.session.editUserId = id;
+  userHelpers.editUser(id, (result) => {
+    console.log(result);
+    req.session.editUserData = result;
+    res.redirect("/admin/dashboard");
+  });
+});
+router.post("/edit", function (req, res) {
+  let id = req.session.editUserId;
+  console.log(req.body);
+  userHelpers.updateUser(id, req.body, (result) => {
+    console.log(result);
+    if (result) {
+      req.session.editUserId = undefined;
+      res.redirect("/admin/dashboard");
+    } else {
+      console.log("updation failed");
+    }
+    // req.session.editUserData = result;
+  });
+});
+router.post("/add", function (req, res) {
+  console.log(req.body);
+  userHelpers.addUser(req.body, (result) => {
+    console.log(result);
+    if (result.status === 200) {
+      res.redirect("/admin/dashboard");
+    } else {
+      req.session.addUserWarning = "User already registered";
+      res.redirect("/admin/dashboard");
+    }
   });
 });
 

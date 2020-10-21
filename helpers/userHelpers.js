@@ -107,4 +107,65 @@ module.exports = {
         return callback(result);
       });
   },
+  editUser: (id, callback) => {
+    let query = { _id: ObjectId(id) };
+    db.getConnection()
+      .collection("registerDetails")
+      .findOne(query)
+      .then((result) => {
+        // console.log(result);
+        return callback(result);
+      });
+  },
+  updateUser: (id, data, callback) => {
+    let query = { _id: ObjectId(id) };
+    let updatedData = {
+      "User-Name": data.userName,
+      Email: data.email,
+      "Mobile-Number": data.mobNo,
+    };
+    db.getConnection()
+      .collection("registerDetails")
+      .findOneAndUpdate(query, { $set: updatedData })
+      .then((result) => {
+        // console.log(result.ok);
+        return callback(result.ok);
+      });
+  },
+  addUser: (data, callback) => {
+    let { userName, email, mobNo, password } = data;
+    const hashedPassword = bcrypt.hashSync(password, saltRounds);
+
+    let query = { Email: email, "Mobile-Number": mobNo };
+    db.getConnection()
+      .collection("registerDetails")
+      .find(query)
+      .toArray()
+      .then((result) => {
+        if (result.length === 0) {
+          db.getConnection()
+            .collection("registerDetails")
+            .insertOne({
+              "User-Name": userName,
+              Email: email,
+              "Mobile-Number": mobNo,
+              Password: hashedPassword,
+            })
+            .then((result) => {
+              if (!result.result.ok) {
+                console.error("registration failed please try again");
+              } else {
+                console.log(result.ops);
+                return callback({
+                  status: 200,
+                  message: "Register successfully",
+                });
+              }
+            });
+        } else {
+          console.log("User already registered");
+          return callback({ status: 301, message: "user already registered" });
+        }
+      });
+  },
 };

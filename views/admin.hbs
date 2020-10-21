@@ -54,15 +54,89 @@
                         <td>{{this.Email}}</td>
                         <td>{{this.Mobile-Number}}</td>
                         <td>{{this.Password}}</td>
-                        <td><a href=""><i class="fas fa-edit"></i></a></td>
-                        <td><a href="http://localhost:3000/admin/dashboard/delete?id={{this._id}}"> <i class="fas fa-trash-alt"></i></a>
+                        <td><a href="http://localhost:3000/admin/dashboard/edit?id={{this._id}}"><i
+                                    class="fas fa-edit"></i></a></td>
+                        <td><a href="http://localhost:3000/admin/dashboard/delete?id={{this._id}}"> <i
+                                    class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                     {{/each}}
                 </thead>
             </table>
+            <div class="addUserDetails">
+                <a href=""><button id="addFormBtn" type="button">Add User</button></a>
+            </div>
         </div>
     </section>
+    {{#if editUserData}}
+    <section>
+        <div class="editForm" id="editForm">
+            <div class="editHeader">
+                <div>
+                    <h2>Edit User</h2>
+                </div>
+                <div>
+                    <a href=""><i id="editCloseBtn" class="fas fa-times"></i></a>
+                </div>
+            </div>
+            <form action="http://localhost:3000/admin/dashboard/edit" method="POST" id="editUserForm">
+                <label for="userName">User Name</label>
+                <br>
+                <input type="text" class="userName" name="userName" id="SignUpUsername"
+                    value={{editUserData.User-Name}}>
+                <br>
+                <label for="email">Email</label>
+                <br>
+                <input type="email" class="email" name="email" id="email" value={{editUserData.Email}}>
+                <br>
+                <label for="mobNo">Mobile Number</label>
+                <br>
+                <input type="text" class="mobNo" name="mobNo" id="mobNo" value={{editUserData.Mobile-Number}}>
+                <br>
+                <button type="submit" id="registerSubmitBtn">Register</button>
+            </form>
+        </div>
+    </section>
+    {{/if}}
+
+    <section>
+        <div class="addForm" id="addForm" style="display: none;">
+            <div class="addHeader">
+                <div>
+                    <h2>Add User</h2>
+                </div>
+                <div>
+                    <a href=""><i id="addCloseBtn" class="fas fa-times"></i></a>
+                </div>
+            </div>
+            <form action="http://localhost:3000/admin/dashboard/add" method="POST" id="editUserForm">
+                <label for="userName">User Name</label>
+                <br>
+                <input type="text" class="userName" name="userName" id="SignUpUsername" value="" required=true>
+                <br>
+                <label for="email">Email</label>
+                <br>
+                <input type="email" class="email" name="email" id="email" value="" required=true>
+                <br>
+                <label for="mobNo">Mobile Number</label>
+                <br>
+                <input type="text" class="mobNo" name="mobNo" id="mobNo" value="" required=true>
+                <br>
+                <label for="password">Password</label>
+                <br>
+                <input type="password" class="password" name="password" id="password" value="" required=true>
+                <br>
+                <button type="submit" id="registerSubmitBtn">Register</button>
+            </form>
+        </div>
+    </section>
+    {{#if addUserWarning}}
+    <section>
+        <div class="warningMessage">
+            <p>{{addUserWarning}}</p>
+        </div>
+    </section>
+    {{/if}}
     <script src="/javascripts/admin.js"></script>
 </body>
 

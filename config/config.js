@@ -21,7 +21,7 @@ module.exports = {
         callback();
       });
     } catch (error) {
-      console.log("Database cnnection error" + error);
+      console.log("Database connection error" + error);
     }
   },
 };
