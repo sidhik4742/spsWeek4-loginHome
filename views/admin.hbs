@@ -30,10 +30,10 @@
                 </li>
                 <li>
                     <div class="searchDiv">
-                        <form action="http://localhost:3000/admin/dashboard/search" method="POST">
-                            <input type="text" id="searchUser" name="searchKey" placeholder="Search">
-                            <button type="submit" class="searchbtn" ><i id="searchBtn" class="fas fa-search"></i></button>
-                        </form>
+                        {{!-- <form action="http://localhost:3000/admin/dashboard/search" method="POST"> --}}
+                        <input type="text" id="searchUser" name="searchKey" placeholder="Search">
+                        <button type="submit" class="searchbtn"><i id="searchBtn" class="fas fa-search"></i></button>
+                        {{!-- </form> --}}
                     </div>
                 </li>
             </ul>
@@ -45,7 +45,7 @@
 
     <section>
         <div class="adminPage">
-            <table>
+            <table id="searchedRow">
                 <thead>
                     <tr>
                         <td>User Name</td>
@@ -55,6 +55,8 @@
                         <td>Edit</td>
                         <td>Delete</td>
                     </tr>
+                </thead>
+                <tbody>
                     {{#each result}}
                     <tr>
                         <td>{{this.User-Name}}</td>
@@ -68,7 +70,7 @@
                         </td>
                     </tr>
                     {{/each}}
-                </thead>
+                </tbody>
             </table>
             <div class="addUserDetails">
                 <a href=""><button id="addFormBtn" type="button">Add User</button></a>
@@ -89,18 +91,17 @@
             <form action="http://localhost:3000/admin/dashboard/edit" method="POST" id="editUserForm">
                 <label for="userName">User Name</label>
                 <br>
-                <input type="text" class="userName" name="userName" id="SignUpUsername"
-                    value={{editUserData.User-Name}}>
+                <input type="text" class="userName" name="userName" id="editUsername" value={{editUserData.User-Name}}>
                 <br>
                 <label for="email">Email</label>
                 <br>
-                <input type="email" class="email" name="email" id="email" value={{editUserData.Email}}>
+                <input type="email" class="email" name="email" id="editEmail" value={{editUserData.Email}}>
                 <br>
                 <label for="mobNo">Mobile Number</label>
                 <br>
-                <input type="text" class="mobNo" name="mobNo" id="mobNo" value={{editUserData.Mobile-Number}}>
+                <input type="text" class="mobNo" name="mobNo" id="editMobNo" value={{editUserData.Mobile-Number}}>
                 <br>
-                <button type="submit" id="registerSubmitBtn">Register</button>
+                <button type="submit" id="editSubmitBtn">Register</button>
             </form>
         </div>
     </section>
@@ -116,7 +117,7 @@
                     <a href=""><i id="addCloseBtn" class="fas fa-times"></i></a>
                 </div>
             </div>
-            <form action="http://localhost:3000/admin/dashboard/add" method="POST" id="editUserForm">
+            <form action="http://localhost:3000/admin/dashboard/add" method="POST" id="addUserForm">
                 <label for="userName">User Name</label>
                 <br>
                 <input type="text" class="userName" name="userName" id="SignUpUsername" value="" required=true>
