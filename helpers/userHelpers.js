@@ -169,14 +169,20 @@ module.exports = {
       });
   },
   searchUser: (key, callback) => {
-    let query = { "User-Name": key.searchKey };
-    db.getConnection()
-      .collection("registerDetails")
-      .find(query)
-      .toArray()
-      .then((result) => {
-        // console.log(result);
+    if (key.searchKey) {
+      let query = { "User-Name": key.searchKey };
+      db.getConnection()
+        .collection("registerDetails")
+        .find(query)
+        .toArray()
+        .then((result) => {
+          // console.log(result);
+          return callback(result);
+        });
+    } else {
+      module.exports.findUserDetailsForAdmin((result) => {
         return callback(result);
       });
+    }
   },
 };

@@ -51,57 +51,77 @@ router.get("/logout", function (req, res) {
 });
 
 router.get("/delete", function (req, res) {
-  let id = req.query.id;
-  console.log("id : " + id);
-  userHelpers.deleteUser(id, (result) => {
-    console.log(result.result);
-    res.redirect("/admin/dashboard");
-  });
+  if (req.session.adminLoginStatus) {
+    let id = req.query.id;
+    console.log("id : " + id);
+    userHelpers.deleteUser(id, (result) => {
+      console.log(result.result);
+      res.redirect("/admin/dashboard");
+    });
+  } else {
+    res.redirect("/admin");
+  }
 });
 
 router.get("/edit", function (req, res) {
-  let id = req.query.id;
-  console.log("id : " + id);
-  req.session.editUserId = id;
-  userHelpers.editUser(id, (result) => {
-    console.log(result);
-    req.session.editUserData = result;
-    res.redirect("/admin/dashboard");
-  });
+  if (req.session.adminLoginStatus) {
+    let id = req.query.id;
+    console.log("id : " + id);
+    req.session.editUserId = id;
+    userHelpers.editUser(id, (result) => {
+      console.log(result);
+      req.session.editUserData = result;
+      res.redirect("/admin/dashboard");
+    });
+  } else {
+    res.redirect("/admin");
+  }
 });
 router.post("/edit", function (req, res) {
-  let id = req.session.editUserId;
-  console.log(req.body);
-  userHelpers.updateUser(id, req.body, (result) => {
-    console.log(result);
-    if (result) {
-      req.session.editUserId = undefined;
-      res.redirect("/admin/dashboard");
-    } else {
-      console.log("updation failed");
-    }
-    // req.session.editUserData = result;
-  });
+  if (req.session.adminLoginStatus) {
+    let id = req.session.editUserId;
+    console.log(req.body);
+    userHelpers.updateUser(id, req.body, (result) => {
+      console.log(result);
+      if (result) {
+        req.session.editUserId = undefined;
+        res.redirect("/admin/dashboard");
+      } else {
+        console.log("updation failed");
+      }
+      // req.session.editUserData = result;
+    });
+  } else {
+    res.redirect("/admin");
+  }
 });
 router.post("/add", function (req, res) {
   console.log(req.body);
-  userHelpers.addUser(req.body, (result) => {
-    console.log(result);
-    if (result.status === 200) {
-      res.redirect("/admin/dashboard");
-    } else {
-      req.session.addUserWarning = "User already registered";
-      res.redirect("/admin/dashboard");
-    }
-  });
+  if (req.session.adminLoginStatus) {
+    userHelpers.addUser(req.body, (result) => {
+      console.log(result);
+      if (result.status === 200) {
+        res.redirect("/admin/dashboard");
+      } else {
+        req.session.addUserWarning = "User already registered";
+        res.redirect("/admin/dashboard");
+      }
+    });
+  } else {
+    res.redirect("/admin");
+  }
 });
 
 router.post("/search", function (req, res) {
   console.log(req.body);
-  userHelpers.searchUser(req.body, (result) => {
-    // req.session.searchedData = result;
-    res.render("admin", { result: result });
-  });
+  if (req.session.adminLoginStatus) {
+    userHelpers.searchUser(req.body, (result) => {
+      // req.session.searchedData = result;
+      res.render("admin", { result: result });
+    });
+  } else {
+    res.redirect("/admin");
+  }
 });
 
 module.exports = router;
