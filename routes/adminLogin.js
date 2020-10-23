@@ -4,7 +4,6 @@ var router = express.Router();
 // let config = require("../config/config");
 // const userHelpers = require("../helpers/userHelpers");
 
-
 /**
  * TODO: /// hardcoded user name and password ///
  * *  /// User name : admin ///
@@ -12,8 +11,15 @@ var router = express.Router();
  * * /// 101 status for access to admin page //
  */
 
-const authentication = () => {
-  
+const authentication = (req,res,next) => {
+  if (req.body.userName === "admin" && req.body.password === "admin") {
+    console.log("this is admin page");
+    req.session.adminLoginStatus = true;
+    res.send({ status: 101, message: "render to admin page" });
+    return true;
+  } else {
+    res.send({ status: null, message: "Admin not valid" });
+  }
 };
 
 /* GET users listing. */
@@ -25,11 +31,11 @@ router.get("/", function (req, res) {
   if (req.session.adminLoginStatus) {
     res.redirect("/admin/dashboard");
   } else {
-    res.render("login", { title: "Login-page" });
+    res.render("adminLogin", { title: "AdminLogin-Page" });
   }
 });
 
-router.post("/", authentication, function (req, res) {
+router.post("/login", authentication, function (req, res) {
   console.log(req.session);
   res.redirect("/admin/dashboard");
 });
