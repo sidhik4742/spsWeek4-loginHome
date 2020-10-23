@@ -64,9 +64,10 @@
                         <td>{{this.Mobile-Number}}</td>
                         <td>{{this.Password}}</td>
                         <td><a href="http://localhost:3000/admin/dashboard/edit?id={{this._id}}"><i
-                                    class="fas fa-edit"></i></a></td>
-                        <td><a href="http://localhost:3000/admin/dashboard/delete?id={{this._id}}"> <i
-                                    class="fas fa-trash-alt"></i></a>
+                                    class=" fas fa-edit"></i></a>
+                        </td>
+                        <td><a href="http://localhost:3000/admin/dashboard/delete?id={{this._id}}" onclick="return confirm('Are you sure want to delete {{this.User-Name}}?'
+                                ) "> <i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                     {{/each}}
