@@ -39,6 +39,9 @@ const sessionHandling = (req, res, next) => {
   res.setHeader("Expires", "0"); // Proxies.
   console.log("This is homePage middleware router");
   console.log(req.session.loginStatus);
+  // if (req.session.adminLoginStatus) {
+  //   res.redirect("/admin/dashboard");
+  // }
   if (req.session.loginStatus) {
     next();
   } else {
@@ -61,7 +64,7 @@ router.get("/", sessionHandling, function (req, res) {
 
 router.get("/logout", function (req, res) {
   console.log("This signout root");
-  req.session.destroy();
+  req.session.loginStatus = null;
   console.log(req.session);
   res.redirect("/");
   // console.log(req.cookies);

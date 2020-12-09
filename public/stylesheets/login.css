@@ -28,7 +28,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   border: 2px solid black;
   box-shadow: 10px 15px rgba(9, 9, 9, 0.911);
@@ -87,13 +87,39 @@
   padding: 9px;
 }
 
+/* ****************login form style***************** */
+
 .container .loginPage .formDiv {
+  /* position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translate(0, -50%); */
   background-color: rgba(9, 9, 9, 0.781);
   border: 2px solid black;
   box-shadow: 10px 15px rgba(9, 9, 9, 0.911);
   border-radius: 10px;
   padding: 1rem 1rem;
 }
+.transformLogin{
+  animation: animationLogin 3s;
+  -webkit-animation: animationLogin 3s;
+}
+@keyframes animationLogin{
+  0%{
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+  100%{
+    transform: rotateY(180deg);
+    opacity: 0;
+  }
+  
+}
+/* @-webkit-keyframes animationLogin{
+  0%{opacity: 1;}
+  100%{opacity: 0;}
+  
+} */
 
 .container .loginPage .formDiv .login-heading h1 {
   color: whitesmoke;
@@ -131,7 +157,95 @@
   margin-left: 50%;
   transform: translate(-50%);
 }
+.container .loginPage .formDiv .register {
+  text-align: center;
+}
+.container .loginPage .formDiv .register p{
+  color: white;
+}
+.container .loginPage .formDiv .register a{
+  text-decoration: none;
+  color: red;
+}
+.container .loginPage .formDiv .register a:hover{
+  color: white;
+}
 
+/* *********************************************************** */
+
+/* ****************sign up form style***************** */
+
+.container .loginPage .registerForm{
+  background-color: rgba(9, 9, 9, 0.781);
+  border: 2px solid black;
+  box-shadow: 10px 15px rgba(9, 9, 9, 0.911);
+  border-radius: 10px;
+  padding: 1rem 1rem;
+  margin-right: 10rem;
+  display: none;
+}
+.container .loginPage .registerForm .register-heading h1 {
+  color: whitesmoke;
+  text-align: center;
+  padding: 1rem;
+}
+.container .loginPage .registerForm form label {
+  margin-left: 11%;
+  padding: 5px;
+  /* margin: 0.5rem; */
+  font-size: var(--textSize);
+  color: whitesmoke;
+}
+.container .loginPage .registerForm form input {
+  margin-bottom: 0.5rem;
+  padding: 8px;
+  margin-left: 11%;
+  /* margin: 0.5rem; */
+  max-width: 15rem;
+  width: 90%;
+  outline: none;
+  /* border: none; */
+  border-radius: 10px;
+  font-size: var(--textSize);
+}
+.container .loginPage .registerForm form p {
+  color: red;
+}
+.container .loginPage .registerForm form button {
+  padding: 10px;
+  margin: 0.5rem;
+  border-radius: 5px;
+  font-size: var(--textSize);
+  background-color: whitesmoke;
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+.transformSignup{
+  animation: animationregister 3s;
+  -webkit-animation: animationLogin 3s;
+}
+@keyframes animationregister{
+  form{
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+  to{
+    transform: rotateY(180deg);
+    opacity: 0;
+  }
+}
+.container .loginPage .registerForm .login {
+  text-align: center;
+}
+.container .loginPage .registerForm .login a{
+  text-decoration: none;
+  color: red;
+}
+.container .loginPage .registerForm .login a:hover{
+  color: white;
+}
+
+/* *********************************************************** */
 .container .noUser {
   width: 350px;
   height: 100px;

@@ -1,0 +1,150 @@
+body {
+  background-color: #000000;
+  /* background-image: linear-gradient(315deg, #000000 0%, #414141 74%); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.navbar {
+  padding: 1rem 1rem;
+}
+
+.cardimg {
+  height: 25rem;
+}
+
+.brandName {
+  border: 2px solid rgba(0, 255, 0, 0.863);
+  color: rgba(0, 255, 0, 0.863) !important;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 10px 10px black;
+}
+
+.brandName:hover {
+  background-color: rgba(0, 255, 0, 0.863);
+  color: white !important;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.884);
+  color: white;
+}
+.navbar .searchDiv {
+  padding: 10px;
+  background-color: white;
+  border-radius: 50px;
+}
+.navbar .searchDiv .searchbtn {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.navbar .searchDiv input {
+  outline: none;
+  border-color: transparent;
+}
+
+.adminPage {
+  width: 80%;
+  height: auto;
+  margin-top: 1rem;
+  margin-left: 50vw;
+  transform: translate(-50%);
+}
+.adminPage table tr {
+  border-bottom: 2px solid white;
+}
+.adminPage td {
+  /* border: 2px solid white; */
+  color: whitesmoke;
+  padding: 1rem;
+  text-align: center;
+}
+.adminPage .fa-edit:hover {
+  color: green;
+}
+.adminPage .fa-trash-alt:hover {
+  color: red;
+}
+.adminPage .addUserDetails button {
+  margin-top: 7px;
+  padding: 5px;
+  background-color: #343a40;
+  color: rgba(0, 255, 0, 0.863);
+  border: 1px solid rgba(0, 255, 0, 0.863);
+  border-radius: 10px;
+}
+.adminPage .addUserDetails button:hover {
+  background-color: rgba(0, 255, 0, 0.863);
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.editForm,
+.addForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  height: auto;
+  padding: 10px 0 10px 20px;
+  background-color: rgba(255, 255, 255, 0.973);
+  z-index: 5;
+  border-radius: 20px;
+  box-shadow: 20px darkgrey;
+}
+.addForm h2 {
+  /* text-align: center; */
+  color: black;
+}
+
+.editForm label,
+.addForm label {
+  /* margin-left: 11%; */
+  padding: 5px;
+  /* margin: 0.5rem; */
+  font-size: var(--textSize);
+  /* color: ; */
+}
+.editForm input,
+.addForm input {
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 8px;
+  /* margin-left: 11%; */
+  /* margin: 0.5rem; */
+  max-width: 15rem;
+  width: 90%;
+  outline: none;
+  /* border: none; */
+  border-radius: 10px;
+  font-size: var(--textSize);
+}
+.editForm button,
+.addForm button {
+  padding: 10px;
+  margin: 0.5rem;
+  border-radius: 5px;
+  font-size: var(--textSize);
+  background-color: whitesmoke;
+  margin-left: 50%;
+  transform: translate(-60%);
+}
+
+.editForm .editHeader,
+.addForm .addHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* color: black; */
+}
+.editForm .editHeader .fa-times,
+.addForm .addHeader .fa-times {
+  margin-right: 10px;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+}

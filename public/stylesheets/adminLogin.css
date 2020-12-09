@@ -1,0 +1,326 @@
+:root {
+    --textSize: 1rem;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(37, 37, 39, 0.322),
+        rgba(12, 11, 11, 0.623)
+      ),
+      url("https://images.pexels.com/photos/313782/pexels-photo-313782.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .container .loginPage {
+    background-image: url("/images/iron man movies comics thor captain america marvel comics the avengers movie hulk 1920x1080 wal_www.wallpaperhi.com_71.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px solid black;
+    box-shadow: 10px 15px rgba(9, 9, 9, 0.911);
+    border-radius: 10px;
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(9, 9, 9, 0.596);
+    width: 90vw;
+    height: 80vh;
+    -webkit-animation: scrollingImg 12s infinite;
+    -moz-animation: scrollingImg 12s infinite;
+    animation: scrollingImg 12s infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+  
+  @-webkit-keyframes scrollingImg {
+    0% {
+      background-image: url("../images/wp2564734-superheroes-hd-wallpapers.jpg");
+    }
+    25% {
+      background-image: url("../images/aAjnvF.jpg");
+    }
+    50% {
+      background-image: url("../images/kM0xZP.jpg");
+    }
+    75% {
+      background-image: url("../images/ZGAtxv.jpg");
+    }
+    100% {
+      background-image: url("../images/xFMDu2w.jpg");
+    }
+  }
+  
+  .container .loginPage .contentDiv {
+    position: relative;
+    width: 20rem;
+    height: auto;
+    color: whitesmoke;
+  }
+  
+  .container .loginPage .contentDiv h1 {
+    font-family: "Courgette", cursive;
+    font-size: 3em;
+    font-weight: bolder;
+    font-style: italic;
+    text-shadow: 2px 2px #00b7ff;
+    /* font-style: oblique; */
+  }
+  .container .loginPage .contentDiv p {
+    font-size: 1.2em;
+    padding: 9px;
+  }
+  
+  /* ****************login form style***************** */
+  
+  .container .loginPage .formDiv {
+    /* position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(0, -50%); */
+    background-color: rgba(9, 9, 9, 0.781);
+    border: 2px solid black;
+    box-shadow: 10px 15px rgba(9, 9, 9, 0.911);
+    border-radius: 10px;
+    padding: 1rem 1rem;
+  }
+  .transformLogin{
+    animation: animationLogin 3s;
+    -webkit-animation: animationLogin 3s;
+  }
+  @keyframes animationLogin{
+    0%{
+      transform: rotateY(0deg);
+      opacity: 1;
+    }
+    100%{
+      transform: rotateY(180deg);
+      opacity: 0;
+    }
+    
+  }
+  /* @-webkit-keyframes animationLogin{
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+    
+  } */
+  
+  .container .loginPage .formDiv .login-heading h1 {
+    color: whitesmoke;
+    text-align: center;
+    padding: 1rem;
+  }
+  .container .loginPage .formDiv form label {
+    margin-left: 11%;
+    padding: 5px;
+    /* margin: 0.5rem; */
+    font-size: var(--textSize);
+    color: whitesmoke;
+  }
+  .container .loginPage .formDiv form input {
+    margin-bottom: 0.5rem;
+    padding: 8px;
+    margin-left: 11%;
+    /* margin: 0.5rem; */
+    max-width: 15rem;
+    width: 90%;
+    outline: none;
+    /* border: none; */
+    border-radius: 10px;
+    font-size: var(--textSize);
+  }
+  .container .loginPage .formDiv form p {
+    color: red;
+  }
+  .container .loginPage .formDiv form button {
+    padding: 10px;
+    margin: 0.5rem;
+    border-radius: 5px;
+    font-size: var(--textSize);
+    background-color: whitesmoke;
+    margin-left: 50%;
+    transform: translate(-50%);
+  }
+  .container .loginPage .formDiv .register {
+    text-align: center;
+  }
+  .container .loginPage .formDiv .register p{
+    color: white;
+  }
+  .container .loginPage .formDiv .register a{
+    text-decoration: none;
+    color: red;
+  }
+  .container .loginPage .formDiv .register a:hover{
+    color: white;
+  }
+  
+  /* *********************************************************** */
+  
+  /* ****************sign up form style***************** */
+  
+  .container .loginPage .registerForm{
+    background-color: rgba(9, 9, 9, 0.781);
+    border: 2px solid black;
+    box-shadow: 10px 15px rgba(9, 9, 9, 0.911);
+    border-radius: 10px;
+    padding: 1rem 1rem;
+    margin-right: 10rem;
+    display: none;
+  }
+  .container .loginPage .registerForm .register-heading h1 {
+    color: whitesmoke;
+    text-align: center;
+    padding: 1rem;
+  }
+  .container .loginPage .registerForm form label {
+    margin-left: 11%;
+    padding: 5px;
+    /* margin: 0.5rem; */
+    font-size: var(--textSize);
+    color: whitesmoke;
+  }
+  .container .loginPage .registerForm form input {
+    margin-bottom: 0.5rem;
+    padding: 8px;
+    margin-left: 11%;
+    /* margin: 0.5rem; */
+    max-width: 15rem;
+    width: 90%;
+    outline: none;
+    /* border: none; */
+    border-radius: 10px;
+    font-size: var(--textSize);
+  }
+  .container .loginPage .registerForm form p {
+    color: red;
+  }
+  .container .loginPage .registerForm form button {
+    padding: 10px;
+    margin: 0.5rem;
+    border-radius: 5px;
+    font-size: var(--textSize);
+    background-color: whitesmoke;
+    margin-left: 50%;
+    transform: translate(-50%);
+  }
+  .transformSignup{
+    animation: animationregister 3s;
+    -webkit-animation: animationLogin 3s;
+  }
+  @keyframes animationregister{
+    form{
+      transform: rotateY(0deg);
+      opacity: 1;
+    }
+    to{
+      transform: rotateY(180deg);
+      opacity: 0;
+    }
+  }
+  .container .loginPage .registerForm .login {
+    text-align: center;
+  }
+  .container .loginPage .registerForm .login a{
+    text-decoration: none;
+    color: red;
+  }
+  .container .loginPage .registerForm .login a:hover{
+    color: white;
+  }
+  
+  /* *********************************************************** */
+  .container .noUser {
+    width: 350px;
+    height: 100px;
+    border-radius: 10px;
+    border: 2px solid whitesmoke;
+    background-color: rgba(12, 11, 11, 0.966);
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    z-index: 5;
+  }
+  .container .noUser h3 {
+    text-align: center;
+    color: whitesmoke;
+    padding-top: 20px;
+    padding-bottom: 5px;
+  }
+  .container .noUser button {
+    padding: 10px;
+    margin-left: 50%;
+    transform: translate(-50%);
+  }
+  .container .showDisplayClass {
+    display: block;
+  }
+  .container .hideDisplayClass {
+    display: none;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .container .loginPage {
+      display: block;
+    }
+  
+    .container .loginPage .contentDiv {
+      position: relative;
+      width: 18rem;
+      height: auto;
+      color: whitesmoke;
+      text-align: center;
+    }
+    .container .loginPage .formDiv {
+      margin-top: 2rem;
+    }
+  
+    /* .container .loginPage .formDiv form input {
+      width: 90%;
+      margin-left: 20%;
+    } */
+    /* .container .loginPage .formDiv form label {
+      margin-left: 20%;
+    } */
+    .container .noUser {
+      width: 225px;
+    }
+  }
+  
+  @media only screen and (max-width: 290px) {
+    .container .loginPage .contentDiv h1 {
+      font-size: 2rem;
+    }
+    .container .loginPage .formDiv form input {
+      margin-left: 7%;
+    }
+    .container .loginPage .formDiv form label {
+      margin-left: 7%;
+    }
+    .container .loginPage .contentDiv p {
+      margin-right: 10px;
+      font-size: 1rem;
+    }
+    .container .loginPage .contentDiv {
+      width: 14rem;
+      text-align: center;
+    }
+  }
+  

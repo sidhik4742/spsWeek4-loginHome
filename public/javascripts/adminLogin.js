@@ -74,14 +74,15 @@ document.getElementById("submitBtn").addEventListener("click", (event) => {
             // console.log(nonStatus);
             userName.value = "";
             password.value = "";
-          } else if(homePage.status === 201) {
-            document.location.href = "http://localhost:3000/home";
-          }
+          } 
+        //   else if(homePage.status === 201) {
+        //     document.location.href = "http://localhost:3000/home";
+        //   }
         }
       }
     };
 
-    xhr.open("post", "http://localhost:3000/", true);
+    xhr.open("post", "http://localhost:3000/admin/login", true);
     xhr.setRequestHeader("content-type", "application/json");
     xhr.send(JSON.stringify(userData));
 

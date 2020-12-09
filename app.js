@@ -6,7 +6,17 @@ let cookieParser = require("cookie-parser");
 let logger = require("morgan");
 let cors = require("cors");
 let session = require("express-session");
+let db = require("./config/config");
 
+db.dbConnect((error) => {
+  if (error) {
+    console.log("db connection failed" + error);
+  } else {
+    console.log("db connection success");
+  }
+});
+let adminLoginRouter = require("./routes/adminLogin");
+let adminRouter = require("./routes/admin");
 let indexRouter = require("./routes/index");
 let loginRouter = require("./routes/login");
 const { token } = require("morgan");
@@ -49,7 +59,8 @@ app.use(
 //     },
 //   })
 // );
-
+app.use("/admin", adminLoginRouter);
+app.use("/admin/dashboard", adminRouter);
 app.use("/home", indexRouter);
 app.use("/", loginRouter);
 
