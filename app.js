@@ -80,5 +80,7 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
+app.listen(3003, () => console.log(`Server running on port 3003`));
+
 module.exports = app;
 // module.exports = session;
