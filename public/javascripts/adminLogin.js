@@ -146,7 +146,7 @@ const signupValidation = (userData) => {
   if (userNameValue === "" || userNameValue.length <= 4) {
     userNameDiv.style.borderColor = "red";
     userNameDivErr.style.display = "block";
-    console.error("Please enter a valid user name");
+    console.error("Please enter atleast 4 character");
     return false;
   } else if (!emailValue.match(emailFormat)) {
     userNameDiv.style.borderColor = "grey";

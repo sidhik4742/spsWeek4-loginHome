@@ -126,10 +126,23 @@ module.exports = {
     };
     db.getConnection()
       .collection("registerDetails")
-      .findOneAndUpdate(query, { $set: updatedData })
+      .find(query)
+      .toArray()
       .then((result) => {
-        // console.log(result.ok);
-        return callback(result.ok);
+        console.log(result[0]);
+        //!${result.User-Name} != ${updatedData.User-Name} ||${result.Mobile-Number} != ${updatedData.Mobile-Number}
+
+        if (result.length != 0) {
+          db.getConnection()
+            .collection("registerDetails")
+            .findOneAndUpdate(query, { $set: updatedData })
+            .then((result) => {
+              // console.log(result.ok);
+              return callback(result.ok);
+            });
+        } else {
+          return callback({ result: { ok: 0 }, status: 301 });
+        }
       });
   },
   addUser: (data, callback) => {
@@ -139,7 +152,7 @@ module.exports = {
     let query = { Email: email, "Mobile-Number": mobNo };
     db.getConnection()
       .collection("registerDetails")
-      .find(query)
+      .find({ $or: [query] })
       .toArray()
       .then((result) => {
         if (result.length === 0) {

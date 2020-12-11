@@ -38,3 +38,8 @@ document.getElementById("searchUser").addEventListener("input", (event) => {
 // function searchUser(){
 //     console.log("this search field");
 // }
+
+let nonStatus = document.querySelector(".warningMessage");
+document.getElementById("statusBtn").addEventListener('click',()=>{
+    nonStatus.style.display = "none";
+})

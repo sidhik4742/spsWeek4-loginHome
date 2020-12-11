@@ -148,3 +148,34 @@ body {
   color: black;
   text-decoration: none;
 }
+
+.warningMessage {
+  width: 350px;
+  height: 100px;
+  border-radius: 10px;
+  border: 2px solid whitesmoke;
+  background-color: rgba(12, 11, 11, 0.966);
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  z-index: 7;
+}
+.warningMessage h4 {
+  text-align: center;
+  color: whitesmoke;
+  padding-top: 20px;
+  padding-bottom: 5p;
+}
+
+ .warningMessage button {
+  padding: 10px;
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+/* .warningMessage .showDisplayClass {
+  display: block;
+}
+.warningMessage .hideDisplayClass {
+  display: none;
+} */

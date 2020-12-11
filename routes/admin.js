@@ -32,9 +32,11 @@ router.get("/", configDashboard, function (req, res) {
       result: result,
       editUserData: req.session.editUserData,
       addUserWarning: req.session.addUserWarning,
+      existUser: req.session.existUser,
     });
     req.session.editUserData = undefined;
     req.session.addUserWarning = undefined;
+    req.session.existUser - undefined;
   } else {
     res.redirect("/admin");
   }
@@ -85,9 +87,12 @@ router.post("/edit", function (req, res) {
       console.log(result);
       if (result) {
         req.session.editUserId = undefined;
+        req.session.existUser = {status:true,message:"Edit success"};
         res.redirect("/admin/dashboard");
-      } else {
+      } else if (result.status === 301) {
         console.log("updation failed");
+        req.session.existUser = {status:false,message:"Edit success"};
+        res.redirect("/admin/dashboard");
       }
       // req.session.editUserData = result;
     });
@@ -103,7 +108,7 @@ router.post("/add", function (req, res) {
       if (result.status === 200) {
         res.redirect("/admin/dashboard");
       } else {
-        req.session.addUserWarning = "User already registered";
+        req.session.addUserWarning = {status:true, message:"User already registered"};
         res.redirect("/admin/dashboard");
       }
     });

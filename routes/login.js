@@ -27,6 +27,7 @@ const authentication = (req, res, next) => {
       if (result.status) {
         console.log("User validated");
         req.session.loginStatus = true;
+        console.log(req.sessionID);
         res.send(result);
       } else {
         console.log("responce with a message invalid user");
