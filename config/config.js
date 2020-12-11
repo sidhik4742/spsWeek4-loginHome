@@ -10,8 +10,7 @@ module.exports = {
   dbConnect: (callback) => {
     try {
       const url =
-        'mongodb+srv://sidhik:letmein64742@cluster0.wgcac.mongodb.net/eLibraryDB?retryWrites=true&w=majority' ||
-        'mongodb://localhost:27017';
+        'mongodb+srv://sidhik:letmein64742@cluster0.wgcac.mongodb.net/customerDetails?retryWrites=true&w=majority';
       const dbName = 'customerDetails';
       MongoClient.connect(url, {useUnifiedTopology: true}, (error, db) => {
         if (error) {
