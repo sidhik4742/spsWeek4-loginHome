@@ -7,6 +7,7 @@ let logger = require("morgan");
 let cors = require("cors");
 let session = require("express-session");
 let db = require("./config/config");
+let env = require('dotenv').config({ path: '/full/custom/path/to/your/env/vars' });
 
 db.dbConnect((error) => {
   if (error) {

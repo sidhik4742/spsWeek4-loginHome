@@ -63,7 +63,7 @@ document.getElementById("submitBtn").addEventListener("click", (event) => {
         if (homePage.status === 101) {
           userName.value = "";
           password.value = "";
-          document.location.href = "http://localhost:3000/admin/dashboard";
+          document.location.href = "http://3.137.34.100:3003/admin/dashboard";
         } else {
           if (homePage.status === null) {
             let nonStatus = document.querySelector(".noUser");
@@ -82,7 +82,7 @@ document.getElementById("submitBtn").addEventListener("click", (event) => {
       }
     };
 
-    xhr.open("post", "http://localhost:3000/admin/login", true);
+    xhr.open("post", "http://3.137.34.100:3003/admin/login", true);
     xhr.setRequestHeader("content-type", "application/json");
     xhr.send(JSON.stringify(userData));
 
@@ -228,7 +228,7 @@ document
         }
       };
 
-      xhr.open("post", "http://localhost:3000/register", true);
+      xhr.open("post", "http://3.137.34.100:3003/register", true);
       xhr.setRequestHeader("content-type", "application/json");
       xhr.send(JSON.stringify(userData));
 
